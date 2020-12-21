@@ -11,6 +11,7 @@ const message = document.getElementById("message")
 const rollBtn = document.getElementById("rollBtn")
 const resetBtn = document.getElementById("resetBtn")
 const images=document.getElementById("images")
+const modal = document.getElementById("myModal")
 function showResetButton() {
     rollBtn.style.display = "none"
     resetBtn.style.display = "block"
@@ -21,6 +22,7 @@ function showResetButton() {
     const randomNumber = Math.floor(Math.random() * 6) + 1
     const cow = Math.floor(Math.random() * 2)
     const cowNumber= Math.floor(Math.random() * 6) + 1;
+
     // if(cow)
     // {
     //    images.style.display="block";
@@ -38,9 +40,11 @@ function showResetButton() {
         {
             player1Score=Math.max(player1Score-cowNumber,0)
             images.classList.add("cow");
+            modal.style.display = "block";
             images.style.display="block"; 
             let myVar = setTimeout(function(){ images.classList.remove("cow") 
             images.style.display="none";
+            modal.style.display = "none";
         }, 2000);
         }
         player1Scoreboard.textContent = player1Score
@@ -55,10 +59,12 @@ function showResetButton() {
             player2Score=Math.max(player2Score-cowNumber,0);
 
             images.classList.add("cow");
+            modal.style.display = "block";
             images.style.display="block"; 
             let myVar = setTimeout(function(){
              images.classList.remove("cow")
-             images.style.display="none"; 
+             images.style.display="none";
+             modal.style.display = "none"; 
              }, 2000);
         }
         player2Scoreboard.textContent = player2Score
